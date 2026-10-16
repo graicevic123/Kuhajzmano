@@ -1,0 +1,21 @@
+---
+layout: default
+title: Recepti
+permalink: /recepti/
+---
+<section class="okvir stran">
+  <h1>Vsi recepti</h1>
+  <form class="iskalnik" role="search" onsubmit="return false">
+    <label for="iskanje">Išči med recepti in sestavinami</label>
+    <div class="iskalnik-vrstica"><input id="iskanje" type="search" placeholder="npr. šparglji, kruh, losos" autocomplete="off"></div>
+  </form>
+  <div class="cipi filtri" role="group" aria-label="Kategorija">
+    <button type="button" class="cip" aria-pressed="true" data-kat="">Vse</button>
+    {% for k in site.data.kategorije %}<button type="button" class="cip" aria-pressed="false" data-kat="{{ k.ime }}">{{ k.ime }}</button>{% endfor %}
+  </div>
+  <p class="stevec" id="stevec" aria-live="polite"></p>
+  <div class="mreza" id="rezultati">
+    {% for p in site.posts %}<div class="ovoj" data-k="{{ p.kategorije | join: '|' | escape }}" data-x="{{ p.title | escape }} {{ p.sestavine | join: ' ' | escape }}">{% include kartica.html p=p %}</div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.opis | jsonify }},
+  {% if page.slika %}"image": [{{ page.slika | absolute_url | jsonify }}],{% endif %}
+  "author": { "@type": "Person", "name": "Kuhaj z mano" },
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  {% if page.porcije %}"recipeYield": "{{ page.porcije }}",{% endif %}
+  {% if page.kategorije.size > 0 %}"recipeCategory": {{ page.kategorije | first | jsonify }},{% endif %}
+  "recipeIngredient": {{ page.sestavine | jsonify }},
+  "recipeInstructions": [{% for k in page.koraki %}{ "@type": "HowToStep", "text": {{ k | jsonify }} }{% unless forloop.last %},{% endunless %}{% endfor %}]
+}
+</script>

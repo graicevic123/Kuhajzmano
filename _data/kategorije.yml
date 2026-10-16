@@ -1,0 +1,38 @@
+- ime: "Glavne jedi"
+  slug: glavne-jedi
+- ime: "Sladice"
+  slug: sladice
+- ime: "Domače"
+  slug: domace
+- ime: "Moj vrt"
+  slug: moj-vrt
+- ime: "Solate"
+  slug: solate
+- ime: "Potopisi"
+  slug: potopisi
+- ime: "Domači sendviči"
+  slug: domaci-sendvici
+- ime: "Zajtrk"
+  slug: zajtrk
+- ime: "Predjedi"
+  slug: predjedi
+- ime: "Namazi"
+  slug: namazi
+- ime: "Kruh"
+  slug: kruh
+- ime: "Ostalo"
+  slug: ostalo
+- ime: "Juhe"
+  slug: juhe
+- ime: "Napitki"
+  slug: napitki
+- ime: "Omake in dodatki"
+  slug: omake-in-dodatki
+- ime: "Večerja"
+  slug: vecerja
+- ime: "Malinca"
+  slug: malinca
+- ime: "Sokovi"
+  slug: sokovi
+- ime: "Vblog"
+  slug: vblog

@@ -1,0 +1,10 @@
+---
+layout: default
+---
+{% assign objave = site.posts | where_exp: "p", "p.kategorije contains page.kategorija" %}
+<section class="okvir stran">
+  <nav aria-label="Pot" class="pot"><a href="{{ '/' | relative_url }}">Domov</a><span aria-hidden="true">/</span><a href="{{ '/recepti/' | relative_url }}">Recepti</a></nav>
+  <h1>{{ page.kategorija }}</h1>
+  <p class="stevec">{{ objave.size }} objav</p>
+  <div class="mreza">{% for p in objave %}{% include kartica.html p=p %}{% endfor %}</div>
+</section>

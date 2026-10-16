@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="okvir objava">
+  <div class="objava-uvod">
+    <div class="objava-besedilo">
+      <nav aria-label="Pot" class="pot"><a href="{{ '/' | relative_url }}">Domov</a>{% for k in page.kategorije %}{% assign kat = site.data.kategorije | where: "ime", k | first %}<span aria-hidden="true">/</span><a href="{{ '/kategorija/' | append: kat.slug | append: '/' | relative_url }}">{{ k }}</a>{% endfor %}</nav>
+      <h1>{{ page.title }}</h1>
+      <dl class="podatki">
+        {% if page.cas %}<div><dt>Čas</dt><dd>{{ page.cas }}</dd></div>{% endif %}
+        {% if page.porcije %}<div><dt>Porcije</dt><dd data-porcije-oznaka>{{ page.porcije }}</dd></div>{% endif %}
+        <div><dt>Objavljeno</dt><dd>{{ page.date | date: "%-d. %-m. %Y" }}</dd></div>
+      </dl>
+    </div>
+    {% if page.slika %}<img class="objava-slika" src="{{ page.slika | relative_url }}" alt="{{ page.title }}">{% endif %}
+  </div>
+
+  <div class="vsebina{% if page.recept %} recept{% endif %}" {% if page.porcije %}data-porcije="{{ page.porcije }}"{% endif %}>
+    {{ content }}
+  </div>
+
+  {% if page.recept %}<p class="tisk"><button type="button" onclick="window.print()">Natisni recept</button></p>{% endif %}
+
+  {% if page.komentarji %}
+  <section class="komentarji" aria-labelledby="komentarji-naslov">
+    <h2 id="komentarji-naslov">Komentarji ({{ page.komentarji.size }})</h2>
+    {% for c in page.komentarji %}
+    <div class="komentar"><p class="komentar-glava"><strong>{{ c.ime }}</strong> <span>{{ c.datum | date: "%-d. %-m. %Y" }}</span></p><p>{{ c.besedilo | xml_escape | newline_to_br }}</p></div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% assign prva = page.kategorije | first %}
+  {% if prva %}
+  {% assign podobni = site.posts | where_exp: "p", "p.kategorije contains prva" | where_exp: "p", "p.url != page.url" %}
+  {% if podobni.size > 0 %}
+  <section class="podobni">
+    <h2>Še iz kategorije {{ prva }}</h2>
+    <div class="mreza">{% for p in podobni limit: 3 %}{% include kartica.html p=p %}{% endfor %}</div>
+  </section>
+  {% endif %}
+  {% endif %}
+</article>

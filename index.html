@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{% assign najnovejsi = site.posts | first %}
+<section class="okvir uvod">
+  <div class="uvod-besedilo">
+    <h1>Ljubezen gre tudi v želodec, ne samo skozi.</h1>
+    <p class="podnaslov">Blog o kuhanju in vse kar spada zraven.</p>
+    <form class="iskalnik" action="{{ '/recepti/' | relative_url }}" method="get" role="search">
+      <label for="q">Kaj bi danes kuhal?</label>
+      <div class="iskalnik-vrstica">
+        <input id="q" name="q" type="search" placeholder="npr. šparglji, kruh, losos">
+        <button type="submit">Išči</button>
+      </div>
+    </form>
+  </div>
+  <a class="uvod-recept" href="{{ najnovejsi.url | relative_url }}">
+    {% if najnovejsi.slika %}<img src="{{ najnovejsi.slika | relative_url }}" alt="">{% endif %}
+    <span class="uvod-recept-napis"><span class="kartica-naslov">{{ najnovejsi.title }}</span><span>Najnovejši recept</span></span>
+  </a>
+</section>
+
+<section class="pas-kategorije">
+  <div class="okvir">
+    <h2>Kategorije</h2>
+    <div class="cipi">
+      {% for k in site.data.kategorije %}{% assign n = site.posts | where_exp: "p", "p.kategorije contains k.ime" | size %}
+      <a class="cip" href="{{ '/kategorija/' | append: k.slug | append: '/' | relative_url }}">{{ k.ime }} <span>{{ n }}</span></a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="okvir stran">
+  <div class="naslov-vrstica"><h2>Zadnji recepti</h2><a href="{{ '/recepti/' | relative_url }}">Vsi recepti</a></div>
+  <div class="mreza">{% for p in site.posts offset: 1 limit: 9 %}{% include kartica.html p=p %}{% endfor %}</div>
+</section>
+
+<section class="pas-vrt">
+  <div class="okvir pas-vrt-vrstica">
+    <div><h2>Iz mojega vrta</h2><p>Kaj zraste doma in kaj iz tega skuham.</p></div>
+    <a class="gumb-obroba" href="{{ '/kategorija/moj-vrt/' | relative_url }}">Odpri Moj vrt</a>
+  </div>
+</section>

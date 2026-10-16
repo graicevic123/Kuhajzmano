@@ -1,0 +1,18 @@
+title: Kuhaj z mano
+description: Blog o kuhanju in vse kar spada zraven. Ljubezen gre tudi v želodec, ne samo skozi.
+lang: sl_SI
+# Ko bo domena kuhajzmano.com povezana: url: "https://www.kuhajzmano.com" in baseurl: ""
+url: "https://UPORABNIK.github.io"
+baseurl: "/kuhajzmano"
+timezone: Europe/Ljubljana
+permalink: /:year/:month/:title.html
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - tools
+  - Gemfile
+  - Gemfile.lock

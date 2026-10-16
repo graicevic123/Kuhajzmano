@@ -1,0 +1,6 @@
+<a class="kartica" href="{{ include.p.url | relative_url }}">
+  {% assign mala = include.p.slika_mala | default: include.p.slika %}{% if mala %}<img src="{{ mala | replace: '/s1600/', '/s800/' | relative_url }}" alt="" loading="lazy">{% else %}<span class="brez-slike"></span>{% endif %}
+  {% if include.p.kategorije.size > 0 %}<span class="kartica-kat">{{ include.p.kategorije | first }}</span>{% endif %}
+  <span class="kartica-naslov">{{ include.p.title }}</span>
+  <span class="kartica-datum">{{ include.p.date | date: "%-d. %-m. %Y" }}</span>
+</a>
