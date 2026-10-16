@@ -8,9 +8,8 @@ Spletna stran kuhajzmano.com, prenesena z Bloggerja na GitHub Pages (Jekyll).
 2. V GitHub Desktop: **File → New repository**. Ime: `kuhajzmano`. Izberi mapo na računalniku in klikni **Create repository**.
 3. Vsebino te mape (vse datoteke iz zipa, tudi skrito mapo `.github`) kopiraj v novo mapo repozitorija.
 4. V GitHub Desktop vpiši opis (npr. »Prva verzija«), klikni **Commit to main**, nato **Publish repository**. Odkljukaj **Keep this code private**, ker GitHub Pages v brezplačni verziji deluje samo z javnimi repozitoriji.
-5. Na github.com odpri repozitorij in v datoteki `_config.yml` zamenjaj `UPORABNIK` s svojim GitHub uporabniškim imenom (klik na datoteko → ikona svinčnika → **Commit changes**).
-6. **Settings → Pages**: pri *Source* izberi **Deploy from a branch**, veja **main**, mapa **/ (root)** → **Save**.
-7. Čez 2–5 minut je stran na `https://UPORABNIK.github.io/kuhajzmano/`.
+5. **Settings → Pages**: pri *Source* izberi **Deploy from a branch**, veja **main**, mapa **/ (root)** → **Save**.
+6. Čez 2–5 minut je stran na `https://graicevic123.github.io/kuhajzmano/`.
 
 ## Prenos slik z Bloggerja
 
@@ -27,7 +26,7 @@ Ko imaš spet dostop do domene:
 1. V `_config.yml` nastavi `url: "https://www.kuhajzmano.com"` in `baseurl: ""`.
 2. **Settings → Pages → Custom domain**: vpiši `www.kuhajzmano.com` → **Save**.
 3. Pri registrarju domene (GoDaddy) nastavi DNS:
-   - CNAME zapis `www` → `UPORABNIK.github.io`
+   - CNAME zapis `www` → `graicevic123.github.io`
    - štiri A zapise za `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
 4. Ko DNS začne delovati (do 24 ur), v **Settings → Pages** obkljukaj **Enforce HTTPS**.
 
